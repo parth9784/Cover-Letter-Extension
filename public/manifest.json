@@ -6,5 +6,10 @@
   "action": {
     "default_popup": "index.html"
   },
-  "permissions": []
+  "permissions": [],
+  "icons": {
+    "16": "./coverletter.png",
+    "48": "./coverletter.png",
+    "128": "./coverletter.png"
+  }
 }

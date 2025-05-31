@@ -13,6 +13,7 @@
     "@langchain/core": "^0.3.57",
     "@tailwindcss/vite": "^4.1.7",
     "axios": "^1.9.0",
+    "jspdf": "^3.0.1",
     "langchain": "^0.3.27",
     "lucide-react": "^0.511.0",
     "react": "^18.3.1",

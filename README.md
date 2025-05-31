@@ -1,66 +1,91 @@
-# React Chrome Extension Template
+# Cover Letter Generator Chrome Extension
 
-This is a template for creating a Chrome extension using React and [Vite](https://vitejs.dev/) with TypeScript.
+A simple and elegant Chrome extension built with React and Tailwind CSS to generate personalized cover letters using your resume and job description.
 
+## Features
+
+- Upload your resume (PDF format)
+- Enter the company name and paste the job description
+- Instantly generate a tailored cover letter using AI
+- Copy the generated cover letter to your clipboard with one click
+- Clean, modern UI with responsive design
 
 ## Getting Started
 
 ### Prerequisites
 
-Make sure you have [Node.js](https://nodejs.org/) (version 18+ or 20+) installed on your machine.
+- Node.js (v16+ recommended)
+- npm or yarn
 
-### Setup
+### Installation
 
-1. Clone or fork the repository :
+1. **Clone the repository:**
+   ```sh
+   git clone <your-repo-url>
+   cd coverletter
+   ```
 
-    ```sh
-    # To clone
-    git clone https://github.com/5tigerjelly/chrome-extension-react-template
-    cd chrome-extension-react-template
-    ```
+2. **Install dependencies:**
+   ```sh
+   npm install
+   # or
+   yarn install
+   ```
 
-2. Install the dependencies:
+3. **Set up environment variables:**
+   - Create a `.env` file in the root directory.
+   - Add your backend API base URL:
+     ```
+     VITE_BASE_URL='https://your-backend-url.com'
+     ```
 
-    ```sh
-    npm install
-    ```
+4. **Run the development server:**
+   ```sh
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-## 🏗️ Development
+5. **Build for production:**
+   ```sh
+   npm run build
+   # or
+   yarn build
+   ```
 
-To start the development server:
+### Load as Chrome Extension
 
-```sh
-npm run dev
-```
+1. Build the project (`npm run build`).
+2. Open Chrome and go to `chrome://extensions/`.
+3. Enable "Developer mode" (top right).
+4. Click "Load unpacked" and select the `build` folder.
 
-This will start the Vite development server and open your default browser.
+## Usage
 
-## 📦 Build 
+1. Click the extension icon in Chrome.
+2. Upload your resume (PDF).
+3. Enter the company name and paste the job description.
+4. Click "Generate Cover Letter".
+5. Copy the generated cover letter and use it in your application.
 
-To create a production build:
+## Project Structure
 
-```sh
-npm run build
-```
+- `src/` - React source code
+- `public/manifest.json` - Chrome extension manifest
+- `build/` - Production build output
 
-This will generate the build files in the `build` directory.
+## Technologies Used
 
-## 📂 Load Extension in Chrome
-
-1. Open Chrome and navigate to `chrome://extensions/`.
-2. Enable "Developer mode" using the toggle switch in the top right corner.
-3. Click "Load unpacked" and select the `build` directory.
-
-Your React app should now be loaded as a Chrome extension!
-
-## 🗂️ Project Structure
-
-- `public/`: Contains static files and the `manifest.json`.
-- `src/`: Contains the React app source code.
-- `vite.config.ts`: Vite configuration file.
-- `tsconfig.json`: TypeScript configuration file.
-- `package.json`: Contains the project dependencies and scripts.
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Axios](https://axios-http.com/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 ## License
 
-This project is licensed under the MIT License.
+MIT
+
+---
+
+**Made with ❤️ for job seekers!**

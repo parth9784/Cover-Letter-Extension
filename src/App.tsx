@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { aiService } from "./service/AiService";
-import { Loader, Copy, Check } from "lucide-react";
-
+import { Loader, Copy, Check, Download } from "lucide-react";
+import { jsPDF } from "jspdf";
 const App = () => {
   const [resume, setResume] = useState<File | null>(null);
   const [jobDescription, setJobDescription] = useState("");
@@ -15,6 +15,17 @@ const App = () => {
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };
+
+  const handleDownloadPDF = () => {
+    const doc = new jsPDF();
+    doc.setFont("Helvetica");
+    doc.setFontSize(12);
+    const wrappedText = doc.splitTextToSize(coverLetter, 180);
+    doc.text(wrappedText, 15, 20);
+
+    doc.save("cover_letter.pdf");
+  };
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -101,7 +112,7 @@ const App = () => {
         </button>
 
         {coverLetter && (
-          <div className="mt-4 p-4 bg-gray-50 border border-gray-200 rounded-lg text-sm max-h-48 overflow-y-auto shadow-inner scrollbar-thin scrollbar-thumb-indigo-300 scrollbar-track-gray-100 relative">
+          <div className="mt-4 p-4 bg-gray-50 border cursor-pointer border-gray-200 rounded-lg text-sm max-h-48 overflow-y-auto shadow-inner scrollbar-thin scrollbar-thumb-indigo-300 scrollbar-track-gray-100 relative">
             <strong className="block mb-2 text-indigo-600 font-semibold">
               Generated Cover Letter:
             </strong>
@@ -113,7 +124,15 @@ const App = () => {
               className="absolute top-2 right-2 text-indigo-600 hover:text-indigo-800 transition"
               title="Copy to clipboard"
             >
-              {copied ? <Check size={18} /> : <Copy size={18} />}
+              {copied ? <Check size={18} /> : <Copy className="cursor-pointer" size={18} />}
+            </button>
+            <button
+              type="button"
+              onClick={handleDownloadPDF}
+              className="absolute top-2 right-10 text-indigo-600 hover:text-indigo-800 transition"
+              title="Download PDF"
+            >
+              <Download className="cursor-pointer" size={18} />
             </button>
           </div>
         )}
